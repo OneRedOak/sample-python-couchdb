@@ -1,6 +1,4 @@
-import couchdbkit as couchdb
 from couchdbkit import Server
-from couchdbkit import Database
 
 class Couch():
     def __init__(self):
@@ -19,7 +17,6 @@ class Couch():
         self.db.save_docs(things)
 
     def count(self):
-        print self.db.all_docs().count()
         return self.db.all_docs().count()
 
 if __name__ == "__main__":
