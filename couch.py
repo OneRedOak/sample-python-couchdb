@@ -1,10 +1,12 @@
-import couchdb
-
+import couchdbkit as couchdb
+from couchdbkit import Server
+from couchdbkit import Database
 
 class Couch():
     def __init__(self):
-        self.client = Server()
-        self.db = self.client.create('test')
+        self.server = Server()
+        self.server.delete_db('test')
+        self.db = self.server.get_or_create_db('test')
 
     def populate(self):
         things = [
@@ -14,11 +16,11 @@ class Couch():
             {"name": "Krishna"},
             {"name": "Murugan"}
         ]
-        self.doc = self.db.save(things)
+        self.db.save_docs(things)
 
     def count(self):
-        print self.doc.total_rows()
-        return self.doc.total_rows()
+        print self.db.all_docs().count()
+        return self.db.all_docs().count()
 
 if __name__ == "__main__":
     couch = Couch()
