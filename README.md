@@ -1,4 +1,4 @@
-Python MongoDB Sample [![Build Status](https://apibeta.shippable.com/projects/537a506f326b4d0f004a46bb/badge/master)](https://shippable.com)
+Python CouchDB Sample [![Build Status](https://apibeta.shippable.com/projects/539b633329b2203200f08c42/badge/master)](https://beta.shippable.com/projects/539b633329b2203200f08c42)
 =====================
 
-Uses pymongo to test simple document insertion on a MongoDB instance.
+Uses couchdb to test simple document insertion on a CouchDB instance.

@@ -1,13 +1,13 @@
 import unittest
-from mongo import Mongo
+from couch import Couch
 
 
 class TestSuite(unittest.TestCase):
 
     def test(self):
-        mongo = Mongo()
-        mongo.populate()
-        things = mongo.count()
+        couch = Couch()
+        couch.populate()
+        things = couch.count()
         self.failIf(things != 5)
 
 

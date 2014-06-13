@@ -1,13 +1,12 @@
-from pymongo import MongoClient
+import couchdb
 
 
-class Mongo():
+class Couch():
     def __init__(self):
-        self.client = MongoClient()
-        self.db = self.client.test
+        self.client = Server()
+        self.db = self.client.create('test')
 
     def populate(self):
-        self.db.things.remove()
         things = [
             {"name": "Vishnu"},
             {"name": "Lakshmi"},
@@ -15,12 +14,13 @@ class Mongo():
             {"name": "Krishna"},
             {"name": "Murugan"}
         ]
-        self.db.things.insert(things)
+        self.doc = self.db.save(things)
 
     def count(self):
-        return self.db.things.count()
+        print self.doc.total_rows()
+        return self.doc.total_rows()
 
 if __name__ == "__main__":
-    mongo = Mongo()
-    mongo.populate()
-    print(mongo.count())
+    couch = Couch()
+    couch.populate()
+    print(couch.count())
